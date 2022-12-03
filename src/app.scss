@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;;
+}
+
+@mixin display($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.app {
+    height: 100vh;
+    width: 100vw;
+    @include display(column, center, center);
+    
+    &-heading {
+        @include display(row, center, center);
+        color: black;
+        padding: 2rem;
+    }
+
+    &-container {
+        @include display(row, center, center);
+        gap: 12.5rem;
+
+        &-inputs {
+            @include display(column, none, none);
+            gap: 1.2rem;
+            margin-top: 1rem;
+
+            &-input {
+                &-title {
+                    margin-bottom: .4rem;
+                }
+                &-note {
+                    color: rgb(12, 141, 0);
+                    margin-bottom: 1rem;
+                }
+                &-enter {
+                    width: 100%;
+                    padding: .7rem;
+                    border-radius: 10px;
+                    outline: none;
+                    border: none;
+                    background-color: rgb(235, 235, 235);
+                }
+            }
+        }
+        &-display {
+            @include display(column, none, center);
+            
+            &-answer {
+                background-color: rgb(235, 235, 235);
+                padding: 3rem;
+                margin-top: .8rem;
+                font-size: 1.5rem;
+                border-radius: 10px;
+                font-weight: 700;
+            }
+        }
+    }
+    
+
+    &-button {
+        padding: 1rem;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        background-color: rgb(235, 235, 235);
+        font-weight: 700;
+        margin-top: 3rem;
+        width: 30%;
+        cursor: pointer;
+        transition: .3s ease-in;
+        background-color: rgb(12, 141, 0);
+        color: white;
+
+        &:hover {
+            background-color: rgb(7, 87, 0);
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .app {
+
+        &-heading {
+            font-size: .8rem;
+        }
+        &-container {
+            @include display(column, center, center);
+            gap: 2.5rem;
+        }
+
+        &-button {
+            width: 70%;
+        }
+    }
+}
